@@ -1,13 +1,8 @@
-from langchain_community.document_loaders import TextLoader
 from langchain_community.embeddings import BedrockEmbeddings
-#from langchain_aws import BedrockLLM
-#from langchain_community.chat_models import BedrockChat
 from langchain_aws import ChatBedrock
 from langchain.prompts import ChatPromptTemplate, PromptTemplate
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnablePassthrough
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
 
 embeddings_model_id = "amazon.titan-embed-text-v1"
 region_name = "us-west-2"
@@ -22,20 +17,15 @@ anthropic_claude_llm = ChatBedrock(
     model_id="anthropic.claude-3-haiku-20240307-v1:0"
 )
 
-TEMPLATE = """Use the following format:
+TEMPLATE = """Given an input, create syntactically correct PHP code. Don't provide any explanation with the code.
+
+Use the following format:
 
 Question: "Question here"
 Answer: "Answer here"
 
-Answer the question based only on the following context:
-
-Question: What is my name?
-Answer: Mriyam
-
-Question: What is my age?
-Answer: 28
-
-Question: {question}"""
+Question: Write a Drupal functional test PHP function for the following
+{question}"""
 
 custom_prompt_template = PromptTemplate(
     input_variables=["context", "question"], template=TEMPLATE
