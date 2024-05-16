@@ -8,4 +8,4 @@ In case you run into any issues, ask for help on [#ai-showdown-wizards-of-ulimat
 - In the VSCode DevContainer/VSCode window, open a terminal.
 - Run `source assume-role.sh`, then enter your MFA when asked. This assumes you have `CloudServicesDev` and `AWS-Users` AWS accounts set up for AWS CLI locally.
 - Run `streamlit run app/ui.py` from the same terminal.
-- Open the `Network URL` displayed in your browser.
+- Open the `Network URL` displayed in your browser. (eg. http://172.17.0.2:8501)
