@@ -4,7 +4,7 @@ import streamlit as st
 
 
 def ask_question(question):
-    chain_response = query_chain.question_chain(question)
+    chain_response = query_chain.input_chain(question)
     return chain_response
 
 def extract_answer(ai_response):
