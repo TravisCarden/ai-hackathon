@@ -17,12 +17,12 @@ region_name = "us-east-1"
 
 anthropic_claude_llm = ChatBedrock(
     region_name=region_name,
-    model_id="anthropic.claude-3-sonnet-20240229-v1:0"
+    model_id="anthropic.claude-3-sonnet-20240229-v1:0",
 )
 
 TEMPLATE = """Hello AI,
 
-I have a Drupal module and I need comprehensive automated tests created for it. I'm providing you with JSON data that represents the structure and contents of the module's files. Based on this data, generate tests that cover the functionalities reflected in the code.
+I have a Drupal module and I need comprehensive automated tests created for it. I'm providing you with JSON data that represents the structure and contents of the module's files. Based on this data, generate tests that cover the functionalities reflected in the code. Don't give any explanation of the output. Don't output anything apart from JSON data.
 
 Consider the following testing aspects:
 
@@ -56,18 +56,17 @@ custom_prompt_template = PromptTemplate(
 
 model = anthropic_claude_llm
 prompt = ChatPromptTemplate.from_template(TEMPLATE)
-chain = (
-    {
-        #"context": vectorstore_retriever,
-        "input": RunnablePassthrough()
-    }
-    | prompt
-    | model
-    | StrOutputParser()
-)
+#chain = (
+#    {
+#        #"context": vectorstore_retriever,
+#        "input": RunnablePassthrough()
+#    }
+#    | prompt
+#    | model
+#    | StrOutputParser()
+#)
 
-
-def input_chain(question):
+def invoke(data):
     chain = (
         {
             #"context": vectorstore_retriever,
@@ -77,4 +76,4 @@ def input_chain(question):
         | model
         | StrOutputParser()
     )
-    return chain.invoke(question)
+    return chain.invoke(data)
