@@ -1,10 +1,12 @@
-import query_chain
+import ai
 import re
 import streamlit as st
 
 
 def ask_question(question):
-    chain_response = query_chain.question_chain(question)
+    chain_response = ""
+    with st.spinner('Wait for it...'):
+        chain_response = ai.invoke(question)
     return chain_response
 
 def extract_answer(ai_response):
