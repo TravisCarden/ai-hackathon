@@ -1,3 +1,5 @@
+_Note: File created by GPT-4-Turbo (**trying** output our chat😜)_ 
+
 Below is the AI summary of our conversion
 # Complete Chat Interaction Transcript
 

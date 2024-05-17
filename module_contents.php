@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file
+ *
+ * File created by GPT-4-Turbo
+ */
 
 $moduleFolderPath = realpath($argv[1] ?? '');
 

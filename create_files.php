@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file
+ *
+ * File created by GPT-4-Turbo
+ */
 
 $moduleFolderPath = rtrim($argv[1] ?? '', DIRECTORY_SEPARATOR);
 $contentsFilePath = $argv[2] ?? '';

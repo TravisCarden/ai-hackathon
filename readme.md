@@ -1,4 +1,6 @@
-# README: Drupal Module Test File Scripts
+_Note: File created by GPT-4-Turbo_
+
+# Drupal Module Test File Scripts
 
 This repository contains scripts that assist with the generation and management of Drupal module tests. The scripts are designed to work with an AI-driven chat interface for automated test generation based on the module's code.
 
