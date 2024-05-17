@@ -6,9 +6,10 @@ from langchain.prompts import ChatPromptTemplate, PromptTemplate
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+import yaml
 
-embeddings_model_id = "amazon.titan-text-express-v1"
-region_name = "us-west-2"
+embeddings_model_id = "amazon.titan-embed-text-v2:0"
+region_name = "us-east-1"
 
 bedrock_embedding = BedrockEmbeddings(
     region_name=region_name,
@@ -17,10 +18,10 @@ bedrock_embedding = BedrockEmbeddings(
 
 anthropic_claude_llm = ChatBedrock(
     region_name=region_name,
-    model_id="anthropic.claude-3-haiku-20240307-v1:0"
+    model_id="anthropic.claude-3-sonnet-20240229-v1:0"
 )
 
-TEMPLATE = """Given an input, create syntactically correct PHP code. Don't provide any explanation with the code. Use the following format:
+TEMPLATE = """Given an input, create syntactically correct PHP code. Don't provide any explanation with the code. Check if the input matches the contents Drupal module routing file, if not, return "unexpected input". Use the following format:
 
 Question: "Question here"
 Answer: "Answer here"
@@ -36,8 +37,9 @@ custom_prompt_template = PromptTemplate(
 )
 
 # Load the data and split it into chunks
-loader = DirectoryLoader('./ragdata')
+loader = DirectoryLoader('./ragdata', glob='**/*.yaml')
 documents = loader.load()
+yaml.load()
 
 # Split document into chunks
 text_splitter = RecursiveCharacterTextSplitter(

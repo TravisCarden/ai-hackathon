@@ -15,6 +15,8 @@ def extract_answer(ai_response):
         query_text = match.group(1).strip()
     return query_text
 
+st.title('AI Assistant writing tests for Drupal Modules')
+
 hello_message = f"Hello 👋. I am AI Assistant which can write test cases for Drupal modules."
 
 if "messages" not in st.session_state:
@@ -23,7 +25,10 @@ if "messages" not in st.session_state:
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
-        st.code(message["content"], language=message.get("type"))
+        if message.get("type") != "text":
+            st.code(message["content"], language=message.get("type"))
+        else:
+            st.markdown(message["content"])
 
 prompt = st.chat_input("Drupal module routing file contents")
 
@@ -43,6 +48,6 @@ if prompt:
 
         for response in response_list:
             full_response += response
-            message_placeholder.write(full_response)
+        message_placeholder.code(full_response, language="php")
 
     st.session_state.messages.append({"role": "assistant", "content": full_response, "type": "php"})
