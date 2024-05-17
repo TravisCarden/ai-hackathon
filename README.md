@@ -14,3 +14,7 @@
 $ aws bedrock list-foundation-models --region=us-west-2 --by-provider anthropic --query "modelSummaries[*].modelId"
 $ aws bedrock list-foundation-models --region=us-west-2 --by-provider amazon --query "modelSummaries[*].modelId"
 ```
+
+## Further experiments
+
+- [Test generation using only prompt engineering](https://github.com/TravisCarden/ai-hackathon/blob/tedbow-prompt-eng)
