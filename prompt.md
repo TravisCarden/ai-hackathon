@@ -1,7 +1,3 @@
-Absolutely, let's update the `prompt.md` to indicate that when it's used, the expected output should not just be placeholder tests but fully implemented unit and functional tests to the best of the AI's capabilities. Here's the revised `prompt.md`:
-
----
-
 # Drupal Module Test Generation Prompt
 
 ## Purpose
