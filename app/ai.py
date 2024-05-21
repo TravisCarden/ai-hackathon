@@ -5,12 +5,17 @@ from langchain.schema.runnable import RunnablePassthrough
 
 anthropic_claude_llm = ChatBedrock(
     region_name="us-east-1",
-    model_id="anthropic.claude-3-sonnet-20240229-v1:0"
+    model_id="anthropic.claude-3-sonnet-20240229-v1:0",
+    model_kwargs={"temperature": 0.1}
 )
 
 TEMPLATE = """Hello AI,
 
-I have a Drupal module and I need comprehensive automated tests created for it. Based on this data, generate tests that cover the functionalities reflected in the code. Do not output anything apart from the test case code.
+Do not output anything apart from the test case PHP code. I have a Drupal module and I need comprehensive automated tests created for it. Based on this data, generate tests that cover the functionalities reflected in the code.
+
+Use the following format:
+Question: "routing file data here"
+Answer: "PHP test cases here"
 
 Consider the following testing aspects:
 
@@ -19,10 +24,6 @@ Consider the following testing aspects:
 - Other Drupal-specific functionality: Generate tests for configuration forms, permissions, user interactions, entity operations, and more.
 
 Focus on implementing detailed tests with assertions and logic that thoroughly validate the module's correctness and robust functionalities.
-
-Use the following format:
-Question: <routing file data here>
-Answer: <PHP test cases here>
 
 Question: {question}
 """
