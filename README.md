@@ -29,7 +29,7 @@ The Drupal Module Test Generator is a Python application designed to automate th
 
 ## Development
 
-With the instructions for running the application, you should be good to go for development of the application as well. However, in case you're already using Docker and Visual Studio Code, to ease the setup, there's a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) set up as well. You need the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). Open your `ai-hackathon` directory in VSCode and it should offer to use the development container automatically.
+Once you've followed the steps to run the application, you'll be ready to start developing it further. Additionally, for those already utilizing Docker and Visual Studio Code, we've set up a [`devcontainer`]([devcontainer](https://code.visualstudio.com/docs/devcontainers/containers)) to streamline the setup process. Simply ensure you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed. Then, open your `ai-hackathon` directory in VSCode, and it should prompt you to use the development container automatically.
 
 ## Helpful commands
 
